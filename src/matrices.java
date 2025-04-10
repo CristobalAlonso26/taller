@@ -1,4 +1,5 @@
 import java.util.Scanner;
+import java.util.Random;
 
 public class matrices {
     private static final Scanner scanner = new Scanner(System.in);
@@ -64,9 +65,16 @@ public class matrices {
         }
         return matriz;
     }
-    int [ ][ ] llenarMatriz(int matriz [][] ){
-
-
-
+    int [][]llenarMatriz(int matriz [][] ) {
+        Random random = new Random();
+        for (int i = 0; i < matriz.length; i++) {
+            for (int j = 0; j < matriz[0].length; j++) {
+                matriz[i][j] = random.nextInt(10);
+            }
+        }
+        return matriz;
     }
+
+
+
 }
