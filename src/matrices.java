@@ -64,4 +64,9 @@ public class matrices {
         }
         return matriz;
     }
+    int [ ][ ] llenarMatriz(int matriz [][] ){
+
+
+
+    }
 }
