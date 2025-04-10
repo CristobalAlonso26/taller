@@ -3,7 +3,7 @@ import java.util.Random;
 
 public class matrices {
     private static final Scanner scanner = new Scanner(System.in);
-
+    int [][] matriz;
     public static void main(String[] args){
         menu();
     }
@@ -37,15 +37,15 @@ public class matrices {
 
     private static void ejecutarOpcion(int opcion) {
         switch (opcion) {
-            case 1 -> crearMatriz();
-            case 2 -> llenarMatriz();
+            case 1 -> crearMatriz(cantidadfilas(),cantidadcolumnas());
+            case 2 -> llenarMatriz(cantidadfilas(),cantidadcolumnas());
             case 3 -> mostrarFila(,preguntarFila());
-            case 4 -> System.out.println(" 4");
+            case 4 -> matrizCero();
             case 5 -> System.out.println("  Hasta luego...");
             default -> System.out.println(" Opción invalida....");
         }
     }
-    boolean validarDimensiones(int filas, int cols) {
+    static boolean validarDimensiones(int filas, int cols) {
         if (filas >= 0 && cols >= 0) {
             return true;
         } else {
@@ -55,17 +55,20 @@ public class matrices {
     }
 
     static int [ ][ ]crearMatriz(int filas, int cols){
-        int[][] matriz = new int[filas][cols];
-        System.out.println("Introduce los valores de la matriz :");
-        for (int i = 0; i < filas; i++) {
-            for (int j = 0; j<cols; j++) {
-                System.out.print("Valor para [" + i + "][" + j + "]: ");
-                matriz[i][j] = scanner.nextInt();
+        if (validarDimensiones()) {
+            int[][] matriz = new int[filas][cols];
+            System.out.println("Introduce los valores de la matriz :");
+            for (int i = 0; i < filas; i++) {
+                for (int j = 0; j < cols; j++) {
+                    System.out.print("Valor para [" + i + "][" + j + "]: ");
+                    matriz[i][j] = scanner.nextInt();
+                }
             }
+            return matriz;
         }
-        return matriz;
     }
-    static int [][]llenarMatriz(int matriz [][] ) {
+    static int [][]llenarMatriz(int filas, int columnas ) {
+        int matriz[][]= new int[filas][columnas];
         Random random = new Random();
         for (int i = 0; i < matriz.length; i++) {
             for (int j = 0; j < matriz[0].length; j++) {
@@ -86,7 +89,7 @@ public class matrices {
         return fila;
     }
 
-    boolean matrizCero(int matriz[][]){
+    static boolean matrizCero(int matriz[][]){
         int contadorcero = 0;
         int contador = 0;
         for (int i=0;i< matriz.length;i++){
@@ -99,4 +102,13 @@ public class matrices {
         }
         return contadorcero <= contador / 2;
     }
+    static int cantidadfilas(){
+        int filas= scanner.nextInt();
+        return filas;
+    }
+    static int cantidadcolumnas(){
+        int columnas= scanner.nextInt();
+        return columnas;
+    }
 }
+
