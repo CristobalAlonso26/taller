@@ -52,5 +52,16 @@ public class matrices {
             return false;
         }
     }
-    
+
+    int [ ][ ]crearMatriz(int filas, int cols){
+        int[][] matriz = new int[filas][cols];
+        System.out.println("Introduce los valores de la matriz:");
+        for (int i = 0; i < filas; i++) {
+            for (int j = 0; j<cols; j++) {
+                System.out.print("Valor para [" + i + "][" + j + "]: ");
+                matriz[i][j] = scanner.nextInt();
+            }
+        }
+        return matriz;
+    }
 }
