@@ -44,5 +44,13 @@ public class matrices {
             default -> System.out.println(" Opción invalida....");
         }
     }
-
+    boolean validarDimensiones(int filas, int cols) {
+        if (filas >= 0 && cols >= 0) {
+            return true;
+        } else {
+            System.out.println("número de filas o columnas no valido, recuerde que sean números positivos");
+            return false;
+        }
+    }
+    
 }
