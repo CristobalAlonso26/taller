@@ -41,7 +41,7 @@ public class matrices {
             case 3 -> System.out.println(" 3");
             case 4 -> System.out.println(" 4");
             case 5 -> System.out.println("  Hasta luego...");
-            default -> System.out.println(" Opción invalida...");
+            default -> System.out.println(" Opción invalida....");
         }
     }
 
